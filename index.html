@@ -20,122 +20,92 @@
         }
 
         .container {
-            max-width: 48rem;
+            max-width: 60rem;
             margin: 0 auto;
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
         }
 
-        /* Profile section */
-        .profile {
-            text-align: center;
-            margin-bottom: 3rem;
+        /* Header */
+        header {
+            background-color: #f3f4f6;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
-        .profile-image {
-            width: 8rem;
-            height: 8rem;
-            margin: 0 auto 1.5rem;
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
         }
 
-        .profile-image img {
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #111;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #3b82f6;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 2rem;
+        }
+
+        .hero-image img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
             object-fit: cover;
         }
 
-        .profile h1 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .headline {
-            margin-bottom: 1rem;
-        }
-
-        .headline h2 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        @media (min-width: 640px) {
-            .headline h2 {
-                font-size: 3rem;
-            }
-        }
-
-        .company {
-            color: #3b82f6;
-            text-decoration: none;
-        }
-
-        .company:hover {
-            text-decoration: underline;
-        }
-
-        .roles {
-            font-size: 1.25rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .roles span {
-            color: #111;
-            font-weight: 600;
-        }
-
-        /* Buttons */
-        .profile-links {
+        /* Skills Section */
+        .skills-list {
             display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
-            justify-content: center;
-            margin-top: 1.5rem;
         }
 
-        .button {
-            display: inline-flex;
-            align-items: center;
+        .skill-item {
+            background-color: #e5e7eb;
             padding: 0.5rem 1rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.375rem;
+            border-radius: 0.25rem;
             font-size: 0.875rem;
-            font-weight: 500;
-            text-decoration: none;
-            color: #111;
-            background-color: #fff;
-            transition: background-color 0.2s;
         }
 
-        .button:hover {
-            background-color: #f9fafb;
-        }
-
-        .github-button {
-            gap: 0.5rem;
-        }
-
-        .github-icon {
-            width: 1rem;
-            height: 1rem;
-            fill: currentColor;
-        }
-
-        .github-stats {
-            color: #666;
-            margin-left: 0.25rem;
-        }
-
-        /* Work section */
-        .work {
-            margin-top: 3rem;
-        }
-
-        .work h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
+        /* Work Section */
         .work-grid {
             display: grid;
             gap: 1rem;
@@ -151,7 +121,7 @@
             padding: 1.5rem;
         }
 
-        .card h4 {
+        .card h3 {
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -176,91 +146,144 @@
             fill: none;
         }
 
-        .card p {
-            color: #666;
-            font-size: 0.875rem;
+        /* Contact Section */
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #111;
+        }
+
+        .contact-icon {
+            width: 1.5rem;
+            height: 1.5rem;
         }
 
         /* Responsive adjustments */
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-image {
+                margin-bottom: 1rem;
+            }
+
             .work-grid {
-                grid-template-columns: repeat(1, 1fr);
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main class="container">
-        <!-- Profile Section -->
-        <section class="profile">
-            <div class="profile-image">
-                <img src="https://sjc.microlink.io/FdJsBg7k4ZvjPCqfdaoks7_2JpGyfYNuXZQE2FSvxaTuri4xJAWMHkcBSlP7EST9RPTXP2GexDkuy3ARF-64Yw.jpeg" alt="Profile Picture">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>John Doe</h1>
+                <p>I am a Software Engineer</p>
             </div>
-            
-            <div class="profile-content">
-                <h1>Hey, I'm Your Name</h1>
-                
-                <div class="headline">
-                    <h2>
-                        I develop interactive<br>
-                        web-apps at <a href="#" class="company">COMPANY</a>
-                    </h2>
-                </div>
-                
-                <div class="roles">
-                    <p>
-                        I'm an <span>Open Source Contributor</span>, <span>Freelancer</span>,<br>
-                        <span>Developer</span> & <span>Tech Writer</span>
-                    </p>
-                </div>
-                
-                <div class="profile-links">
-                    <a href="mailto:your.email@example.com" class="button">Contact me</a>
-                    <a href="https://github.com/yourusername" class="button github-button">
-                        <svg viewBox="0 0 24 24" class="github-icon">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        Follow
-                        <span class="github-stats">2,475</span>
-                    </a>
-                </div>
+            <div class="hero-image">
+                <img src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?t=st=1737191488~exp=1737195088~hmac=0e4fc28314ec07ef34d17f6979805bf14351c96c2d7db960cb0191b0c006ffe3&w=1380" alt="John Doe">
             </div>
         </section>
 
-        <!-- Work Section -->
-        <section class="work">
-            <h3>Work</h3>
-            
+        <section id="about">
+            <h2>Who Am I?</h2>
+            <p>I'm a passionate software engineer with a keen interest in building innovative web applications. With over 5 years of experience in the tech industry, I've worked on a variety of projects ranging from small startups to large enterprise solutions. My goal is to create efficient, scalable, and user-friendly applications that solve real-world problems.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <span class="skill-item">JavaScript</span>
+                <span class="skill-item">React</span>
+                <span class="skill-item">Node.js</span>
+                <span class="skill-item">Python</span>
+                <span class="skill-item">SQL</span>
+                <span class="skill-item">Git</span>
+                <span class="skill-item">AWS</span>
+                <span class="skill-item">Docker</span>
+            </div>
+        </section>
+
+        <section id="work">
+            <h2>Work</h2>
             <div class="work-grid">
                 <div class="card">
                     <div class="card-content">
-                        <h4>
+                        <h3>
                             Project Name
                             <a href="#" class="external-link">
                                 <svg viewBox="0 0 24 24" class="external-icon">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
                                 </svg>
                             </a>
-                        </h4>
+                        </h3>
                         <p>A brief description of your project and its key features. Explain what makes it special and what technologies you used.</p>
                     </div>
                 </div>
                 
                 <div class="card">
                     <div class="card-content">
-                        <h4>
+                        <h3>
                             Another Project
                             <a href="#" class="external-link">
                                 <svg viewBox="0 0 24 24" class="external-icon">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
                                 </svg>
                             </a>
-                        </h4>
+                        </h3>
                         <p>Description of another significant project you've worked on. Highlight your role and the impact it had.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <div class="contact-links">
+                <a href="mailto:john.doe@example.com" class="contact-link">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    Email
+                </a>
+                <a href="https://github.com/johndoe" class="contact-link">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/johndoe" class="contact-link">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </section>
     </main>
 </body>
 </html>
+
